@@ -33,7 +33,12 @@ class MovieCard extends StatelessWidget {
               color: Colors.white,
               borderRadius: BorderRadius.circular(5.0),
               image: DecorationImage(
-                image: NetworkImage(movie.poster),
+                image: movie.poster != 'N/A'
+                    ? NetworkImage(movie.poster)
+                    : const Image(
+                        image: AssetImage('assets/images/broken.png'),
+                        fit: BoxFit.fitWidth,
+                      ).image,
                 fit: BoxFit.fill,
               ),
             ),
